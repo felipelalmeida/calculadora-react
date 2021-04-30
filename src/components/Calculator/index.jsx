@@ -46,6 +46,7 @@ export default class Calculator extends Component {
             return
         }
 
+
         if (number === '.' && this.state.display.includes('.')) {
             return
         }
@@ -57,7 +58,7 @@ export default class Calculator extends Component {
         this.setState({ display: newDisplay })
 
         if (number !== '.') {
-            const newValue =  parseFloat(newDisplay)
+            const newValue = parseFloat(newDisplay)
             const arrayValues = [...this.state.values]
             arrayValues[position] = newValue
             this.setState({ values: arrayValues })
@@ -77,11 +78,18 @@ export default class Calculator extends Component {
             return
         }
 
+        const currentValue = (this.state.display)
+        const newValue = parseFloat(currentValue)
+
+        if (newValue === '.') {
+            return
+        }
+
 
         if (this.state.display === '') {
             this.setState({ operator: operator, display: '' })
         } else {
-            const newValue = parseFloat(this.state.display)
+            console.log(newValue);
             const history = [...this.state.values]
             history[0] = this.state.values[0]
 
@@ -142,11 +150,12 @@ export default class Calculator extends Component {
     }
 
     render() {
-        const teste = this.state.history.length
         return (
             <div className='mainContainer'>
-                {(teste > 0 && !this.state.result) && <span>{`${this.state.values[0]} ${this.state.operator}`}</span>}
-                {(this.state.result) && <span>{`${this.state.history[0]} ${this.state.operator} ${this.state.history[1]} =`}</span>}
+                <span className='teste2'>  {`  `}
+                    {(this.state.history.length > 0 && !this.state.result) && <span>{`${this.state.values[0]} ${this.state.operator}`}</span>}
+                    {(this.state.result) && <span>{`${this.state.history[0]} ${this.state.operator} ${this.state.history[1]} =`}</span>}
+                </span>
                 <div className='teste'>
                     <Display display={this.state.display} />
                     <div className='keys'>
