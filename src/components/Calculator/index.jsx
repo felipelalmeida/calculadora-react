@@ -81,7 +81,7 @@ export default class Calculator extends Component {
         const currentValue = (this.state.display)
         const newValue = parseFloat(currentValue)
 
-        if (newValue === '.') {
+        if (currentValue === '.') {
             return
         }
 
@@ -124,10 +124,14 @@ export default class Calculator extends Component {
             case '-':
                 arrayValues[0] = (arrayValues[0] - arrayValues[1])
                 break;
-            case '*':
+            case 'x':
                 arrayValues[0] = (arrayValues[0] * arrayValues[1])
                 break;
             case '/':
+                if (arrayValues[1] === 0) {
+                    alert('Impossível realizar divisão por 0')
+                    return
+                }
                 arrayValues[0] = (arrayValues[0] / arrayValues[1])
                 break;
             default:
@@ -152,11 +156,11 @@ export default class Calculator extends Component {
     render() {
         return (
             <div className='mainContainer'>
-                <span className='teste2'>  {`  `}
-                    {(this.state.history.length > 0 && !this.state.result) && <span>{`${this.state.values[0]} ${this.state.operator}`}</span>}
-                    {(this.state.result) && <span>{`${this.state.history[0]} ${this.state.operator} ${this.state.history[1]} =`}</span>}
-                </span>
-                <div className='teste'>
+                {`  `}
+                {(this.state.history.length > 0 && !this.state.result) && <span>{`${this.state.values[0]} ${this.state.operator}`}</span>}
+                {(this.state.result) && <span>{`${this.state.history[0]} ${this.state.operator} ${this.state.history[1]} =`}</span>}
+
+                <div>
                     <Display display={this.state.display} />
                     <div className='keys'>
                         <Button label='AC' onClick={this.clearMemory} className='clear' />
@@ -164,7 +168,7 @@ export default class Calculator extends Component {
                         <Button label='7' onClick={this.buttonClick} className='number' />
                         <Button label='8' onClick={this.buttonClick} className='number' />
                         <Button label='9' onClick={this.buttonClick} className='number' />
-                        <Button label='*' onClick={this.operation} className='operator' />
+                        <Button label='x' onClick={this.operation} className='operator' />
                         <Button label='4' onClick={this.buttonClick} className='number' />
                         <Button label='5' onClick={this.buttonClick} className='number' />
                         <Button label='6' onClick={this.buttonClick} className='number' />
@@ -174,7 +178,7 @@ export default class Calculator extends Component {
                         <Button label='3' onClick={this.buttonClick} className='number' />
                         <Button label='+' onClick={this.operation} className='operator' />
                         <Button label='0' onClick={this.buttonClick} className='numberZero' />
-                        <Button label='.' onClick={this.buttonClick} className='point' />
+                        <Button label='.' onClick={this.buttonClick} className='number' />
                         <Button label='=' onClick={this.finalResult} className='result' />
                     </div>
                 </div>
