@@ -4,12 +4,18 @@
     height: 30px;
     margin-bottom: 5px;
     margin-top: 5px;
-
     font-weight: bold;
     font-size: 1.5em;
     overflow: hidden;
+    text-align: right;
+    background-color: #fff;
+    height: 45px;
+}
 
+.display span {
     display: flex;
-    align-items: center;
     justify-content: flex-end;
+    height: 12px;
+    font-size: 12px;
+    padding-bottom: 5px;
 }

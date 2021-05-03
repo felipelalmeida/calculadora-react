@@ -21,17 +21,11 @@ export default class Calculator extends Component {
         this.state = { ...initialStates }
 
         this.buttonClick = this.buttonClick.bind(this)
-        this.clearDisplay = this.clearDisplay.bind(this)
         this.operation = this.operation.bind(this)
         this.clearMemory = this.clearMemory.bind(this)
         this.finalResult = this.finalResult.bind(this)
     }
 
-    clearDisplay() {
-        this.setState({
-            display: ''
-        })
-    }
 
     clearMemory() {
         this.setState({ ...initialStates })
@@ -156,31 +150,28 @@ export default class Calculator extends Component {
     render() {
         return (
             <div className='mainContainer'>
-                {`  `}
-                {(this.state.history.length > 0 && !this.state.result) && <span>{`${this.state.values[0]} ${this.state.operator}`}</span>}
-                {(this.state.result) && <span>{`${this.state.history[0]} ${this.state.operator} ${this.state.history[1]} =`}</span>}
-
-                <div>
-                    <Display display={this.state.display} />
-                    <div className='keys'>
-                        <Button label='AC' onClick={this.clearMemory} className='clear' />
-                        <Button label='/' onClick={this.operation} className='operator' />
-                        <Button label='7' onClick={this.buttonClick} className='number' />
-                        <Button label='8' onClick={this.buttonClick} className='number' />
-                        <Button label='9' onClick={this.buttonClick} className='number' />
-                        <Button label='x' onClick={this.operation} className='operator' />
-                        <Button label='4' onClick={this.buttonClick} className='number' />
-                        <Button label='5' onClick={this.buttonClick} className='number' />
-                        <Button label='6' onClick={this.buttonClick} className='number' />
-                        <Button label='-' onClick={this.operation} className='operator' />
-                        <Button label='1' onClick={this.buttonClick} className='number' />
-                        <Button label='2' onClick={this.buttonClick} className='number' />
-                        <Button label='3' onClick={this.buttonClick} className='number' />
-                        <Button label='+' onClick={this.operation} className='operator' />
-                        <Button label='0' onClick={this.buttonClick} className='numberZero' />
-                        <Button label='.' onClick={this.buttonClick} className='number' />
-                        <Button label='=' onClick={this.finalResult} className='result' />
-                    </div>
+                {/* {(this.state.history.length > 0 && !this.state.result) && <span>{`${this.state.values[0]} ${this.state.operator}`}</span>}
+                {(this.state.result) && <span>{`${this.state.history[0]} ${this.state.operator} ${this.state.history[1]} =`}</span>} */}
+                <Display display={this.state.display} history={this.state.history}
+                    result={this.state.result} values={this.state.values} operator={this.state.operator} />
+                <div className='keys'>
+                    <Button label='AC' onClick={this.clearMemory} className='clear' />
+                    <Button label='/' onClick={this.operation} className='operator' />
+                    <Button label='7' onClick={this.buttonClick} className='number' />
+                    <Button label='8' onClick={this.buttonClick} className='number' />
+                    <Button label='9' onClick={this.buttonClick} className='number' />
+                    <Button label='x' onClick={this.operation} className='operator' />
+                    <Button label='4' onClick={this.buttonClick} className='number' />
+                    <Button label='5' onClick={this.buttonClick} className='number' />
+                    <Button label='6' onClick={this.buttonClick} className='number' />
+                    <Button label='-' onClick={this.operation} className='operator' />
+                    <Button label='1' onClick={this.buttonClick} className='number' />
+                    <Button label='2' onClick={this.buttonClick} className='number' />
+                    <Button label='3' onClick={this.buttonClick} className='number' />
+                    <Button label='+' onClick={this.operation} className='operator' />
+                    <Button label='0' onClick={this.buttonClick} className='numberZero' />
+                    <Button label='.' onClick={this.buttonClick} className='number' />
+                    <Button label='=' onClick={this.finalResult} className='result' />
                 </div>
             </div>
         )
