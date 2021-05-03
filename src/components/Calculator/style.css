@@ -3,19 +3,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 370px;
+    /* height: 370px; */
     width: 250px;
-    /* border: 1px solid #000;s */
-    border-radius: 5px;
     padding: 5px;
     font-family: sans-serif;
+    /* background-color: #f2f3f5; */
 }
-
-/* .mainContainer span {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 12px;
-} */
 
 .keys {
     display: grid;

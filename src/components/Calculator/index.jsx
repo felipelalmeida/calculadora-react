@@ -150,8 +150,6 @@ export default class Calculator extends Component {
     render() {
         return (
             <div className='mainContainer'>
-                {/* {(this.state.history.length > 0 && !this.state.result) && <span>{`${this.state.values[0]} ${this.state.operator}`}</span>}
-                {(this.state.result) && <span>{`${this.state.history[0]} ${this.state.operator} ${this.state.history[1]} =`}</span>} */}
                 <Display display={this.state.display} history={this.state.history}
                     result={this.state.result} values={this.state.values} operator={this.state.operator} />
                 <div className='keys'>
