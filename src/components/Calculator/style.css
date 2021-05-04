@@ -1,13 +1,11 @@
-.mainContainer {
+.container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* height: 370px; */
     width: 250px;
     padding: 5px;
     font-family: sans-serif;
-    /* background-color: #f2f3f5; */
 }
 
 .keys {

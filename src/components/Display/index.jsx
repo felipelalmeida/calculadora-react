@@ -2,7 +2,6 @@ import './style.css';
 
 
 export default function Display(props) {
-    const teste = <span>{`${props.values[0]} ${props.operator}`}</span>
     return (
         <div className='display'>
             <span>

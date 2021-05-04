@@ -24,6 +24,7 @@ export default class Calculator extends Component {
         this.operation = this.operation.bind(this)
         this.clearMemory = this.clearMemory.bind(this)
         this.finalResult = this.finalResult.bind(this)
+        this.toogleSignal = this.toogleSignal.bind(this)
     }
 
 
@@ -32,7 +33,6 @@ export default class Calculator extends Component {
     }
 
     buttonClick(number) {
-
 
         if (this.state.result) {
             this.clearMemory()
@@ -45,21 +45,15 @@ export default class Calculator extends Component {
             return
         }
 
+        const position = this.state.currentPosition
+        const currentValue = this.state.display + number
+        this.setState({ display: currentValue })
 
-        let position = this.state.currentPosition
-        const currentValue = this.state.display
-        const newDisplay = currentValue + number
-        this.setState({ display: newDisplay })
-
-        if (number !== '.') {
-            const newValue = parseFloat(newDisplay)
-            const arrayValues = [...this.state.values]
-            arrayValues[position] = newValue
-            this.setState({ values: arrayValues })
-
-        }
-
-        console.log(this.state.values, this.state.operator, this.state.currentPosition, this.state.history)
+        const newValue = parseFloat(currentValue)
+        console.log(newValue);
+        const arrayValues = [...this.state.values]
+        arrayValues[position] = newValue
+        this.setState({ values: arrayValues })
     }
 
 
@@ -83,7 +77,6 @@ export default class Calculator extends Component {
         if (this.state.display === '') {
             this.setState({ operator: operator, display: '' })
         } else {
-            console.log(newValue);
             const history = [...this.state.values]
             history[0] = this.state.values[0]
 
@@ -96,13 +89,24 @@ export default class Calculator extends Component {
                 result: false
             })
         }
+    }
 
-        console.log(this.state.values, this.state.operator, this.state.currentPosition, this.state.history)
+    toogleSignal() {
+
+        const position = this.state.currentPosition
+        const currentValue = this.state.display
+        const newValue = parseFloat(currentValue * (-1))
+        const arrayValues = [...this.state.values]
+        arrayValues[position] = newValue
+        this.setState({ values: arrayValues, display: newValue })
+        console.log(arrayValues);
+        console.log(currentValue, newValue)
 
     }
 
     finalResult() {
 
+        console.log(this.state.display);
         const operator = this.state.operator
         const arrayValues = [...this.state.values]
         const history = [...this.state.values]
@@ -113,20 +117,22 @@ export default class Calculator extends Component {
 
         switch (operator) {
             case '+':
-                arrayValues[0] = (arrayValues[0] + arrayValues[1])
+                arrayValues[0] = ((arrayValues[0]) + (arrayValues[1]))
                 break;
             case '-':
-                arrayValues[0] = (arrayValues[0] - arrayValues[1])
+                console.log(arrayValues);
+                arrayValues[0] = ((arrayValues[0]) - (arrayValues[1]))
+                console.log(arrayValues);
                 break;
             case 'x':
-                arrayValues[0] = (arrayValues[0] * arrayValues[1])
+                arrayValues[0] = ((arrayValues[0]) * (arrayValues[1]))
                 break;
             case '/':
                 if (arrayValues[1] === 0) {
                     alert('Impossível realizar divisão por 0')
                     return
                 }
-                arrayValues[0] = (arrayValues[0] / arrayValues[1])
+                arrayValues[0] = ((arrayValues[0]) / (arrayValues[1]))
                 break;
             default:
                 break;
@@ -141,15 +147,11 @@ export default class Calculator extends Component {
             result: true
 
         })
-
-        console.log('====================================');
-        console.log(arrayValues, operator, this.state.currentPosition);
-        console.log('====================================');
     }
 
     render() {
         return (
-            <div className='mainContainer'>
+            <div className='container'>
                 <Display display={this.state.display} history={this.state.history}
                     result={this.state.result} values={this.state.values} operator={this.state.operator} />
                 <div className='keys'>
@@ -167,7 +169,8 @@ export default class Calculator extends Component {
                     <Button label='2' onClick={this.buttonClick} className='number' />
                     <Button label='3' onClick={this.buttonClick} className='number' />
                     <Button label='+' onClick={this.operation} className='operator' />
-                    <Button label='0' onClick={this.buttonClick} className='numberZero' />
+                    <Button label='+/-' onClick={this.toogleSignal} className='number' />
+                    <Button label='0' onClick={this.buttonClick} className='number' />
                     <Button label='.' onClick={this.buttonClick} className='number' />
                     <Button label='=' onClick={this.finalResult} className='result' />
                 </div>
