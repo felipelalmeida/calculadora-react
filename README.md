@@ -6,14 +6,12 @@
     <a href="#-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#-pré-requisitos">Pré-requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-    <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#-autor">Autor</a>
 </p>
 
-<br>
+<a href="https://calculadora-react-felipe-almeida.netlify.app/"><img src="public/preview.png"/></a>
 
-
-## Sobre
+## 📋 Sobre
 Projeto desenvolvido com a intenção de praticar os conceitos básicos de Class Component, Props e State em React
 ## ⚙️ Pré-requisitos
 - [Git](https://git-scm.com)
@@ -26,5 +24,6 @@ Projeto desenvolvido com a intenção de praticar os conceitos básicos de Class
 - Para iniciar o projeto execute: npm start
 - A aplicação abrirá na porta:3000 - <http://localhost:3000/>
 
-## Autor
+## ✍ Autor
 <img src="https://avatars.githubusercontent.com/u/48074236?s=60&v=4" width="100px;" alt="Felipe Almeida"/>
+<span>Felipe Almeida</span>
