@@ -3,7 +3,6 @@ import Button from "../Button";
 import Display from "../Display";
 import './style.css';
 
-
 const initialStates = {
     display: '',
     operator: '',
@@ -12,9 +11,7 @@ const initialStates = {
     history: [],
     result: false
 }
-
 export default class Calculator extends Component {
-
 
     constructor(props) {
         super(props)
@@ -26,7 +23,6 @@ export default class Calculator extends Component {
         this.finalResult = this.finalResult.bind(this)
         this.toogleSignal = this.toogleSignal.bind(this)
     }
-
 
     clearMemory() {
         this.setState({ ...initialStates })
@@ -54,9 +50,7 @@ export default class Calculator extends Component {
         this.setState({ values: arrayValues })
     }
 
-
     operation(operator) {
-
 
         if (this.state.values.length === 2) {
             this.finalResult()
@@ -70,7 +64,6 @@ export default class Calculator extends Component {
         if (currentValue === '.') {
             return
         }
-
 
         if (this.state.display === '') {
             this.setState({ operator: operator, display: '' })
@@ -127,7 +120,6 @@ export default class Calculator extends Component {
             default:
                 break;
         }
-
 
         this.setState({
             values: [arrayValues[0]],
