@@ -9,11 +9,11 @@
     <a href="#-autor">Autor</a>
 </p>
 
-<a href="https://calculadora-react-felipe-almeida.netlify.app/"><img src="public/preview.png"/></a>
+<a href="https://calculadora-react-felipe-almeida.netlify.app/"><img src="public/preview.png" width="100" heigth="200"/></a>
 
 ## 📋 Sobre
 Projeto desenvolvido com a intenção de praticar os conceitos básicos de Class Component, Props e State em React
-## ⚙️ Pré-requisitos
+## ⚙️Pré-requisitos
 - [Git](https://git-scm.com)
 - [Node.js](https://nodejs.org/en/)
 
