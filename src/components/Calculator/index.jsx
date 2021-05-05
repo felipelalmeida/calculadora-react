@@ -40,7 +40,6 @@ export default class Calculator extends Component {
             return
         }
 
-
         if (number === '.' && this.state.display.includes('.')) {
             return
         }
@@ -50,7 +49,6 @@ export default class Calculator extends Component {
         this.setState({ display: currentValue })
 
         const newValue = parseFloat(currentValue)
-        console.log(newValue);
         const arrayValues = [...this.state.values]
         arrayValues[position] = newValue
         this.setState({ values: arrayValues })
@@ -92,21 +90,16 @@ export default class Calculator extends Component {
     }
 
     toogleSignal() {
-
         const position = this.state.currentPosition
         const currentValue = this.state.display
         const newValue = parseFloat(currentValue * (-1))
         const arrayValues = [...this.state.values]
         arrayValues[position] = newValue
         this.setState({ values: arrayValues, display: newValue })
-        console.log(arrayValues);
-        console.log(currentValue, newValue)
-
     }
 
     finalResult() {
 
-        console.log(this.state.display);
         const operator = this.state.operator
         const arrayValues = [...this.state.values]
         const history = [...this.state.values]
@@ -114,15 +107,12 @@ export default class Calculator extends Component {
             return
         }
 
-
         switch (operator) {
             case '+':
                 arrayValues[0] = ((arrayValues[0]) + (arrayValues[1]))
                 break;
             case '-':
-                console.log(arrayValues);
                 arrayValues[0] = ((arrayValues[0]) - (arrayValues[1]))
-                console.log(arrayValues);
                 break;
             case 'x':
                 arrayValues[0] = ((arrayValues[0]) * (arrayValues[1]))
@@ -145,7 +135,6 @@ export default class Calculator extends Component {
             history: history,
             currentPosition: 0,
             result: true
-
         })
     }
 
@@ -157,21 +146,21 @@ export default class Calculator extends Component {
                 <div className='keys'>
                     <Button label='AC' onClick={this.clearMemory} className='clear' />
                     <Button label='/' onClick={this.operation} className='operator' />
-                    <Button label='7' onClick={this.buttonClick} className='number' />
-                    <Button label='8' onClick={this.buttonClick} className='number' />
-                    <Button label='9' onClick={this.buttonClick} className='number' />
+                    <Button label='7' onClick={this.buttonClick} className='regularKey' />
+                    <Button label='8' onClick={this.buttonClick} className='regularKey' />
+                    <Button label='9' onClick={this.buttonClick} className='regularKey' />
                     <Button label='x' onClick={this.operation} className='operator' />
-                    <Button label='4' onClick={this.buttonClick} className='number' />
-                    <Button label='5' onClick={this.buttonClick} className='number' />
-                    <Button label='6' onClick={this.buttonClick} className='number' />
+                    <Button label='4' onClick={this.buttonClick} className='regularKey' />
+                    <Button label='5' onClick={this.buttonClick} className='regularKey' />
+                    <Button label='6' onClick={this.buttonClick} className='regularKey' />
                     <Button label='-' onClick={this.operation} className='operator' />
-                    <Button label='1' onClick={this.buttonClick} className='number' />
-                    <Button label='2' onClick={this.buttonClick} className='number' />
-                    <Button label='3' onClick={this.buttonClick} className='number' />
+                    <Button label='1' onClick={this.buttonClick} className='regularKey' />
+                    <Button label='2' onClick={this.buttonClick} className='regularKey' />
+                    <Button label='3' onClick={this.buttonClick} className='regularKey' />
                     <Button label='+' onClick={this.operation} className='operator' />
-                    <Button label='+/-' onClick={this.toogleSignal} className='number' />
-                    <Button label='0' onClick={this.buttonClick} className='number' />
-                    <Button label='.' onClick={this.buttonClick} className='number' />
+                    <Button label='+/-' onClick={this.toogleSignal} className='regularKey' />
+                    <Button label='0' onClick={this.buttonClick} className='regularKey' />
+                    <Button label='.' onClick={this.buttonClick} className='regularKey' />
                     <Button label='=' onClick={this.finalResult} className='result' />
                 </div>
             </div>

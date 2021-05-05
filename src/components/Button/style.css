@@ -4,13 +4,7 @@
     color: #000;
 }
 
-.numberZero {
-    grid-column: span 2;
-    background-color: #f0f0f0;
-    color: #000;
-}
-
-.number {
+.regularKey {
     background-color: #f0f0f0;
     color: #000;
 }
