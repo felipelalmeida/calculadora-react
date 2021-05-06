@@ -9,8 +9,8 @@
     <a href="#-autor">Autor</a>
 </p>
 
-<a href="https://calculadora-react-felipe-almeida.netlify.app/"><img src="public/demo.png"/></a>
-- O projeto está disponível através do endereço: <https://calculadora-react-felipe-almeida.netlify.app/>
+<a href="https://calculadora-react-felipe-almeida.netlify.app/" align="center"><img src="public/demo.png"/></a>
+- O projeto pode ser acessado pelo endereço: <https://calculadora-react-felipe-almeida.netlify.app/>
 
 ## 📋 Sobre
 Projeto desenvolvido com a intenção de praticar os conceitos básicos de Class Component, Props e State em React
