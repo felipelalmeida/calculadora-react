@@ -9,7 +9,7 @@
     <a href="#-autor">Autor</a>
 </p>
 
-<a href="https://calculadora-react-felipe-almeida.netlify.app/"><img src="public/preview.png"/></a>
+<a href="https://calculadora-react-felipe-almeida.netlify.app/"><img src="public/demo.png"/></a>
 - O projeto está disponível através do endereço: <https://calculadora-react-felipe-almeida.netlify.app/>
 
 ## 📋 Sobre
